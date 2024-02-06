@@ -41,7 +41,7 @@ class Subtraction extends Calculator {
                 sub = sub - num;
             }
         }
-        System.out.print("Subtraction : ");
+        //System.out.print("Subtraction : ");
         return sub;
     }
 }
@@ -139,7 +139,7 @@ public class Calculator_operation {
                     System.out.println("Exiting calculator.");
                     break;
                 }
-                double output =0;
+                double output ;
                 if (choice >= 6) {
                     //for square and square root
                     output=opeartionForSingleOperand(choice);
