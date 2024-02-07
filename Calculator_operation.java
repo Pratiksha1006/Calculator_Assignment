@@ -1,115 +1,7 @@
 package Calculator_assignment;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-abstract class Calculator {
-    abstract double calculate();
-}
-// Concrete classes
-class Addition extends Calculator {
-    @Override
-    double calculate() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number: ");
-        double sum = 0;
-        double num = 1;
-        while (num != 0) {
-            num = sc.nextDouble();
-            sum = sum + num;
-        }
-        System.out.print("Addition : ");
-        return sum;
-    }
-}
-class Subtraction extends Calculator {
-    @Override
-    double calculate() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number: ");
-        double sub = 0;
-        double num = 1;
-        int total=0;
-        while (num != 0) {
-            num = sc.nextDouble();
-            if(total==0){
-                total++;
-                sub=num;
-            }
-            else{
-                sub = sub - num;
-            }
-        }
-        //System.out.print("Subtraction : ");
-        return sub;
-    }
-}
-class Multiplication extends Calculator {
-    @Override
-    double calculate() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter number: ");
-        double mul = 1;
-        double num = 0;
-        while (num != 1) {
-            num = sc.nextInt();
-            mul = mul *num;
-        }
-        System.out.print("Multiplication : ");
-        return mul;
-    }
-}
-class Division extends Calculator {
-
-    @Override
-    double calculate() {
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter Numerator : ");
-        double x=sc.nextInt();
-        System.out.print("Enter Denominator  : ");
-        double y=sc.nextInt();
-        System.out.print("Division : ");
-        {
-            if (y == 0) {
-                throw new ArithmeticException("Cannot divide by zero");
-            }
-            return x / y;
-        }
-    }
-}
-class Percentage extends Calculator {
-    double calculate() {
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter 1st number : ");
-        double x=sc.nextInt();
-        System.out.print("Enter 2nd number : ");
-        double y=sc.nextInt();
-        System.out.print("Percentage : ");
-        return (x * y) / 100;
-    }
-}
-class Square extends Calculator {
-    double calculate() {
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter Number : ");
-        double x=sc.nextInt();
-        System.out.print("Square: ");
-        return Math.pow(x, 2);
-    }
-}
-class SquareRoot extends Calculator {
-    double calculate() {
-
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter number : ");
-        double x=sc.nextInt();
-        if (x < 0) {
-            throw new ArithmeticException("Square root of a negative number is undefined");
-        }
-        System.out.print("Square Root : ");
-        return Math.sqrt(x);
-    }
-}
 public class Calculator_operation {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -149,7 +41,7 @@ public class Calculator_operation {
                 System.out.println(output);
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input ,Please enter a valid number.");
-                System.out.println("Enter any key for countinue opeartion ");
+                //System.out.println("Enter any key for countinue opeartion ");
                scanner.next();
             } catch (ArithmeticException e) {
                 System.out.println("Error: " + e.getMessage());
