@@ -2,13 +2,21 @@ package Calculator_assignment;
 
 import java.util.Scanner;
 
-abstract class Calculator {
-    abstract double calculate();
+abstract class CalculatorOperations {
+    abstract double Addition();
+    abstract double Subtraction();
+    abstract double Multiplication();
+    abstract double Division();
+    abstract double Percentage();
+    abstract double Square();
+    abstract double SquareRoot();
+
+
 }
-// Concrete classes
-class Addition extends Calculator {
+
+class Calculator extends CalculatorOperations {
     @Override
-    double calculate() {
+    double Addition() {
         Scanner sc = new Scanner(System.in);
         System.out.println("{ Press 0 to get addition }");
         System.out.print("Enter numbers: ");
@@ -21,32 +29,31 @@ class Addition extends Calculator {
         System.out.print("Addition : ");
         return sum;
     }
-}
-class Subtraction extends Calculator {
+
+
     @Override
-    double calculate() {
+    double Subtraction() {
         Scanner sc = new Scanner(System.in);
         System.out.println("{ Press 0 to get subtraction }");
         System.out.print("Enter numbers: ");
         double sub = 0;
         double num = 1;
-        int total=0;
+        int total = 0;
         while (num != 0) {
             num = sc.nextDouble();
-            if(total==0){
+            if (total == 0) {
                 total++;
-                sub=num;
-            }
-            else{
+                sub = num;
+            } else {
                 sub = sub - num;
             }
         }
         return sub;
     }
-}
-class Multiplication extends Calculator {
+
+
     @Override
-    double calculate() {
+    double Multiplication() {
         Scanner sc = new Scanner(System.in);
         System.out.println("{ Press 1 to get multiplication }");
         System.out.print("Enter number: ");
@@ -54,21 +61,20 @@ class Multiplication extends Calculator {
         double num = 0;
         while (num != 1) {
             num = sc.nextInt();
-            mul = mul *num;
+            mul = mul * num;
         }
         System.out.print("Multiplication : ");
         return mul;
     }
-}
-class Division extends Calculator {
+
 
     @Override
-    double calculate() {
-        Scanner sc=new Scanner(System.in);
+    double Division() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter Numerator : ");
-        double x=sc.nextInt();
+        double x = sc.nextInt();
         System.out.print("Enter Denominator  : ");
-        double y=sc.nextInt();
+        double y = sc.nextInt();
         System.out.print("Division : ");
         {
             if (y == 0) {
@@ -77,33 +83,33 @@ class Division extends Calculator {
             return x / y;
         }
     }
-}
-class Percentage extends Calculator {
-    double calculate() {
-        Scanner sc=new Scanner(System.in);
+
+
+    double Percentage() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter 1st number : ");
-        double x=sc.nextInt();
+        double x = sc.nextInt();
         System.out.print("Enter 2nd number : ");
-        double y=sc.nextInt();
+        double y = sc.nextInt();
         System.out.print("Percentage : ");
         return (x * y) / 100;
     }
-}
-class Square extends Calculator {
-    double calculate() {
-        Scanner sc=new Scanner(System.in);
+
+
+    double Square() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter Number : ");
-        double x=sc.nextInt();
+        double x = sc.nextInt();
         System.out.print("Square: ");
         return Math.pow(x, 2);
     }
-}
-class SquareRoot extends Calculator {
-    double calculate() {
 
-        Scanner sc=new Scanner(System.in);
+
+    double SquareRoot() {
+
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter number : ");
-        double x=sc.nextInt();
+        double x = sc.nextInt();
         if (x < 0) {
             throw new ArithmeticException("Square root of a negative number is undefined");
         }

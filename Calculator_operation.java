@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Calculator_operation {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("------------------------------------------------------");
         System.out.println("Calculator");
 
@@ -30,15 +31,13 @@ public class Calculator_operation {
                     System.out.println("Exiting calculator.");
                     break;
                 }
-                double output ;
+
                 if (choice >= 6) {
-                    //for square and square root
-                    output=opeartionForSingleOperand(choice);
+                    opeartionForSingleOperand(choice);
                 } else {
-                    output=opeartionForDoubleOperand(choice);
+                    opeartionForDoubleOperand(choice);
                 }
-                //result
-                System.out.println(output);
+
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input ,Please enter a valid number.");
                 //System.out.println("Enter any key for countinue opeartion ");
@@ -48,48 +47,40 @@ public class Calculator_operation {
             }
         }
     }
-    private static double opeartionForDoubleOperand(int choice) {
-        Calculator calculator;
+    private static void opeartionForDoubleOperand(int choice) {
+        Calculator op = new Calculator();
         switch (choice) {
             case 1:
-                //System.out.print("Addition : ");
-                calculator = new Addition();
+                System.out.println(op.Addition());
                 break;
             case 2:
-                calculator = new Subtraction();
+                System.out.println(op.Subtraction());
                 break;
             case 3:
-                //System.out.print("Multiplication : ");
-                calculator = new Multiplication();
+                System.out.println(op.Multiplication());
                 break;
             case 4:
-                //System.out.print("Division : ");
-                calculator = new Division();
+                System.out.println(op.Division());
                 break;
             case 5:
-                //System.out.print("Percentage : ");
-                calculator = new Percentage();
+                System.out.println(op.Percentage());
                 break;
             default:
                 throw new IllegalArgumentException("Please check Your choice ");
 
         }
-        return calculator.calculate();
     }
-    private static double opeartionForSingleOperand(int choice) {
-        Calculator calculator;
+    private static void opeartionForSingleOperand(int choice) {
+        Calculator op = new Calculator();
         switch (choice) {
             case 6:
-                //System.out.print("Square: ");
-                calculator = new Square();
+                System.out.println(op.Square());
                 break;
             case 7:
-                //System.out.print("Square Root : ");
-                calculator = new SquareRoot();
+                System.out.println(op.SquareRoot());
                 break;
             default:
-                throw new IllegalArgumentException("Invalid choice");
+                throw new IllegalArgumentException("Please check Your choice ");
         }
-        return calculator.calculate(); // take 0 as second number
     }
 }
